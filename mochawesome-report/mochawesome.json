@@ -1,0 +1,104 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-09-09T01:55:20.583Z",
+    "end": "2025-09-09T01:55:20.677Z",
+    "duration": 94,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8d04d0dc-95df-4299-aa2e-9d2d19db1bf9",
+      "title": "",
+      "fullFile": "C:\\Pessoal\\POS Automação Testes\\trabalho-final-pgats-2025-02\\rest\\test\\rest.external.test.js",
+      "file": "\\rest\\test\\rest.external.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "812f077b-bc40-48da-9c81-3bb1b5119efb",
+          "title": "Cadastrando usuário com sucesso",
+          "fullFile": "C:\\Pessoal\\POS Automação Testes\\trabalho-final-pgats-2025-02\\rest\\test\\rest.external.test.js",
+          "file": "\\rest\\test\\rest.external.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Cadastrando usuário com sucesso",
+              "fullTitle": "Cadastrando usuário com sucesso Cadastrando usuário com sucesso",
+              "timedOut": false,
+              "duration": 85,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const respostaEsperada = require('../fixture/respostas/quandoInformdoDadosValidosTenhoSucesso.json');\nconst res = await request(apiUrl)\n    .post('/api/users/register')\n    .send({ name: 'Andreia', email: 'andreia.schienemayer@gmail.com', password: '123456' });\nexpect(res.status).to.equal(201); // ou 200, conforme sua API\nexpect(res.body).to.deep.equal(respostaEsperada);",
+              "err": {
+                "message": "AssertionError: expected { user: { name: 'Andreia', …(1) } } to deeply equal { name: 'Andreia', …(2) }",
+                "estack": "AssertionError: expected { user: { name: 'Andreia', …(1) } } to deeply equal { name: 'Andreia', …(2) }\n    at Context.<anonymous> (rest\\test\\rest.external.test.js:13:34)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+                "diff": " {\n-   \"user\": {\n-     \"email\": \"andreia.schienemayer@gmail.com\"\n-     \"name\": \"Andreia\"\n-   }\n+   \"email\": \"andreia.schienemayer@gmail.com\"\n+   \"name\": \"Andreia\"\n+   \"password\": \"123456\"\n }\n"
+              },
+              "uuid": "162a9d44-ae1b-4b23-8fe4-2c95a29a4a0f",
+              "parentUUID": "812f077b-bc40-48da-9c81-3bb1b5119efb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "162a9d44-ae1b-4b23-8fe4-2c95a29a4a0f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 85,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 10000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

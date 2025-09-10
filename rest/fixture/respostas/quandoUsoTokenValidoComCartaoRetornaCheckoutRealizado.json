@@ -1,0 +1,13 @@
+{
+  "valorFinal": 210,
+  "userId": 1,
+  "items": [
+    {
+      "productId": 2,
+      "quantity": 2
+    }
+  ],
+  "freight": 10,
+  "paymentMethod": "cartao",
+  "total": 210
+}

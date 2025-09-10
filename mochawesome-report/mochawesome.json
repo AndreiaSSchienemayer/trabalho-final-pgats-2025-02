@@ -1,0 +1,119 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-09-10T03:41:44.805Z",
+    "end": "2025-09-10T03:41:44.873Z",
+    "duration": 68,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8767f69a-4948-4fd3-9779-171e38c63f66",
+      "title": "",
+      "fullFile": "C:\\Pessoal\\POS Automação Testes\\trabalho-final-pgats-2025-02\\graphql\\test\\graphql.external.test.js",
+      "file": "\\graphql\\test\\graphql.external.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f4a089ef-9bd6-4a2b-82c8-aed6bd1052ca",
+          "title": "Testes External GraphQL",
+          "fullFile": "C:\\Pessoal\\POS Automação Testes\\trabalho-final-pgats-2025-02\\graphql\\test\\graphql.external.test.js",
+          "file": "\\graphql\\test\\graphql.external.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve cadastrar novo usuário via GraphQL",
+              "fullTitle": "Testes External GraphQL Deve cadastrar novo usuário via GraphQL",
+              "timedOut": false,
+              "duration": 54,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const respostaEsperada = require('../fixture/respostas/quandoCadastroNovoUsuarioQueNaoExisteRetornaSucesso.json');\nconst mutation = `\n    mutation {\n        register(name: \"Andreia 10\", email: \"andreia10@gmail.com\", password: \"123456\") {\n            email\n            name\n        }\n    }\n`;\nconst res = await request(apiUrl)\n    .post('/graphql')\n    .send({ query: mutation\n});",
+              "err": {},
+              "uuid": "a4437368-4b56-458b-8b74-c29fb3a07a01",
+              "parentUUID": "f4a089ef-9bd6-4a2b-82c8-aed6bd1052ca",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve retornar erro ao tentar cadastrar usuário com email já cadastrado",
+              "fullTitle": "Testes External GraphQL Deve retornar erro ao tentar cadastrar usuário com email já cadastrado",
+              "timedOut": false,
+              "duration": 6,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const respostaErro = require('../fixture/respostas/quandoIndicadoEmailJaCadastradoInformaEmailJaCadastrado.json');\nconst mutation = `\n    mutation {\n        register(name: \"Andreia 10\", email: \"andreia10@gmail.com\", password: \"123456\") {\n            email\n            name\n        }\n    }\n`;\nconst res = await request(apiUrl)\n    .post('/graphql')\n    .send({ query: mutation });\nexpect(res.status).to.equal(200);\nexpect(res.body).to.have.property('errors');\nexpect(res.body.errors[0].message).to.equal(respostaErro.errors[0].message);",
+              "err": {},
+              "uuid": "db9f8319-1448-401e-b0cb-b3725660da78",
+              "parentUUID": "f4a089ef-9bd6-4a2b-82c8-aed6bd1052ca",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a4437368-4b56-458b-8b74-c29fb3a07a01",
+            "db9f8319-1448-401e-b0cb-b3725660da78"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 60,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 10000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-10T03:41:44.805Z",
-    "end": "2025-09-10T03:41:44.873Z",
-    "duration": 68,
+    "start": "2025-09-11T02:16:34.265Z",
+    "end": "2025-09-11T02:16:34.340Z",
+    "duration": 75,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "8767f69a-4948-4fd3-9779-171e38c63f66",
+      "uuid": "8749b00e-b97a-462c-8b54-5c9b65437051",
       "title": "",
       "fullFile": "C:\\Pessoal\\POS Automação Testes\\trabalho-final-pgats-2025-02\\graphql\\test\\graphql.external.test.js",
       "file": "\\graphql\\test\\graphql.external.test.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "f4a089ef-9bd6-4a2b-82c8-aed6bd1052ca",
+          "uuid": "4b857c31-ea84-404b-ac96-b5623ae3c178",
           "title": "Testes External GraphQL",
           "fullFile": "C:\\Pessoal\\POS Automação Testes\\trabalho-final-pgats-2025-02\\graphql\\test\\graphql.external.test.js",
           "file": "\\graphql\\test\\graphql.external.test.js",
@@ -38,7 +38,7 @@
               "title": "Deve cadastrar novo usuário via GraphQL",
               "fullTitle": "Testes External GraphQL Deve cadastrar novo usuário via GraphQL",
               "timedOut": false,
-              "duration": 54,
+              "duration": 60,
               "state": "passed",
               "speed": "medium",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "const respostaEsperada = require('../fixture/respostas/quandoCadastroNovoUsuarioQueNaoExisteRetornaSucesso.json');\nconst mutation = `\n    mutation {\n        register(name: \"Andreia 10\", email: \"andreia10@gmail.com\", password: \"123456\") {\n            email\n            name\n        }\n    }\n`;\nconst res = await request(apiUrl)\n    .post('/graphql')\n    .send({ query: mutation\n});",
               "err": {},
-              "uuid": "a4437368-4b56-458b-8b74-c29fb3a07a01",
-              "parentUUID": "f4a089ef-9bd6-4a2b-82c8-aed6bd1052ca",
+              "uuid": "d3380f45-d045-4a69-b215-21854512b07c",
+              "parentUUID": "4b857c31-ea84-404b-ac96-b5623ae3c178",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Deve retornar erro ao tentar cadastrar usuário com email já cadastrado",
               "fullTitle": "Testes External GraphQL Deve retornar erro ao tentar cadastrar usuário com email já cadastrado",
               "timedOut": false,
-              "duration": 6,
+              "duration": 10,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "const respostaErro = require('../fixture/respostas/quandoIndicadoEmailJaCadastradoInformaEmailJaCadastrado.json');\nconst mutation = `\n    mutation {\n        register(name: \"Andreia 10\", email: \"andreia10@gmail.com\", password: \"123456\") {\n            email\n            name\n        }\n    }\n`;\nconst res = await request(apiUrl)\n    .post('/graphql')\n    .send({ query: mutation });\nexpect(res.status).to.equal(200);\nexpect(res.body).to.have.property('errors');\nexpect(res.body.errors[0].message).to.equal(respostaErro.errors[0].message);",
               "err": {},
-              "uuid": "db9f8319-1448-401e-b0cb-b3725660da78",
-              "parentUUID": "f4a089ef-9bd6-4a2b-82c8-aed6bd1052ca",
+              "uuid": "259373f4-49aa-406e-9079-2f3c4aceeca4",
+              "parentUUID": "4b857c31-ea84-404b-ac96-b5623ae3c178",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "a4437368-4b56-458b-8b74-c29fb3a07a01",
-            "db9f8319-1448-401e-b0cb-b3725660da78"
+            "d3380f45-d045-4a69-b215-21854512b07c",
+            "259373f4-49aa-406e-9079-2f3c4aceeca4"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 60,
+          "duration": 70,
           "root": false,
           "rootEmpty": false,
           "_timeout": 10000
